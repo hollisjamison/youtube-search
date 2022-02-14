@@ -6,11 +6,12 @@ import VideoDetail from "../../components/VideoDetail/VideoDetail";
 import "./MainPage.css";
 
 const MainPage = () => {
+  const [term, setTerm] = useState("React Javascript");
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
-    onTermSubmit("React Javascript");
+    onTermSubmit(term);
   }, []);
 
   const onTermSubmit = async (term) => {
@@ -26,7 +27,7 @@ const MainPage = () => {
 
   return (
     <div className="ui container">
-      <SearchBar onFormSubmit={onTermSubmit} />
+      <SearchBar onFormSubmit={onTermSubmit} term={term} setTerm={setTerm} />
       <div className="ui grid">
         <div className="ui row">
           <div className="eleven wide column">
